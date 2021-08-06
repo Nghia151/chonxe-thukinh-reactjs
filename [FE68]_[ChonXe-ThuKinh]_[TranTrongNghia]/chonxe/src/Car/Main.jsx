@@ -6,30 +6,27 @@ import PickCarColor from './PickCarColor';
 import ShowImg from './ShowImg'
 import Wheel from './Wheel';
 
-
 export default class Main extends Component {
     state = {
-        carList: cars[0],
+        carSelected: cars[0],
         source: cars[0].srcImg,
-
     }
     handleOnClickColor = (id) =>{
-        
-        const index = cars.findIndex(item => item.id === id);
+        const carFind = cars.find(item => item.id === id);
         this.setState({
-            carList: cars[index],
-            source: cars[index].srcImg,
+            carSelected: carFind,
+            source: carFind.srcImg,
         });
     }
     handleOnClickWheel = (idWheel) =>{
-        const {carList} = this.state;
-        const index = carList.wheels.findIndex(item => item.idWheel === idWheel);
+        const {carSelected} = this.state;
+        const wheelFind = carSelected.wheels.find(item => item.idWheel === idWheel);
         this.setState({
-            source: carList.wheels[index].srcImg,
+            source: wheelFind.srcImg
         })
     }
     render() {
-        const {carList, source } = this.state;
+        const {carSelected, source } = this.state;
         return (
             <div className="container-fluid">
                 <div className="row mt-3">
@@ -38,12 +35,11 @@ export default class Main extends Component {
                     </div>
                     <div className="col-4">
                         <PickCarColor cars={cars} handleOnClickColor={this.handleOnClickColor}/>
-
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-8">
-                        <Specification carList={carList}/>
+                        <Specification carSelected={carSelected}/>
                     </div>
                     <div className="col-4">
                         <Wheel wheels={wheels} handleOnClickWheel={this.handleOnClickWheel}/>

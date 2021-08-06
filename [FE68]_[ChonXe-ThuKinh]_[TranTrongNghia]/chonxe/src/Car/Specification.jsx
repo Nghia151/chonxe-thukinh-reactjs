@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class Specification extends Component {
     render() {
-        const {carList} = this.props;
+        const {carSelected} = this.props;
         return (
             <div>
                 <div className="card mt-2">
@@ -14,31 +14,31 @@ export default class Specification extends Component {
                             <tbody>
                                 <tr>
                                     <td>Color</td>
-                                    <td>{carList.color}</td>
+                                    <td>{carSelected.color}</td>
                                 </tr>
                                 <tr>
                                     <td>Price</td>
-                                    <td>{carList.price}$</td>
+                                    <td>{carSelected.price}$</td>
                                 </tr>
                                 <tr>
                                     <td>Engine type</td>
-                                    <td>{carList.engineType}</td>
+                                    <td>{carSelected.engineType}</td>
                                 </tr>
                                 <tr>
                                     <td>Displacement</td>
-                                    <td>{carList.displacement}</td>
+                                    <td>{carSelected.displacement}</td>
                                 </tr>
                                 <tr>
                                     <td>Horsepower (SAE net)</td>
-                                    <td>{carList.horsepower}</td>
+                                    <td>{carSelected.horsepower}</td>
                                 </tr>
                                 <tr>
                                     <td>Torque (SAE net)</td>
-                                    <td>{carList.torque}</td>
+                                    <td>{carSelected.torque}</td>
                                 </tr>
                                 <tr>
                                     <td>Redline</td>
-                                    <td>{carList.redline}</td>
+                                    <td>{carSelected.redline}</td>
                                 </tr>
                             </tbody>
                         </table>
